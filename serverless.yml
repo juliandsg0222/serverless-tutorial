@@ -23,3 +23,5 @@ functions:
           method: GET
           path: /helloUser/{name}
 
+plugins:
+  - serverless-offline
