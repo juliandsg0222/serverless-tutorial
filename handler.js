@@ -29,3 +29,18 @@ module.exports.helloUser = async (event) => {
 		),
 	};
 };
+
+module.exports.createUser = async (event) => {
+	const body = querystring.parse(event["body"]);
+	return {
+		statusCode: 200,
+		body: JSON.stringify(
+			{
+				message: "Petición para crear usuario",
+				input: `Hola ${body.user}`,
+			},
+			null,
+			2
+		),
+	};
+};

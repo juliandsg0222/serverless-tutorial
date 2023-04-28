@@ -23,5 +23,12 @@ functions:
           method: GET
           path: /helloUser/{name}
 
+  createUser:
+    handler: handler.createUser
+    events:
+      - http:
+          method: POST
+          path: /user
+
 plugins:
   - serverless-offline
