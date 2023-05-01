@@ -18,6 +18,16 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: https://registry.npmjs.org
+
+      - name: Cache node modules
+        uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ matrix.os }}-modules-${{ hashFiles('**/package-json.lock') }}
+
+      - name: Install dependencies
+        run: npm install
 
       - name: serverless deploy
         uses: serverless/github-action@master
