@@ -4,6 +4,7 @@ frameworkVersion: "3"
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: ${opt:stage, 'local'}
   region: us-east-1
   apiGateway:
     shouldStartNameWithService: true
